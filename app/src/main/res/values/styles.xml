@@ -1,0 +1,20 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Dark theme -->
+        <item name="colorPrimary">@color/darkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="background">@color/darkCardBackground</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
+
+    <!-- Light theme -->
+    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/lightColorPrimary</item>
+        <item name="colorPrimaryDark">@color/lightColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="background">@color/dialogDateColor</item>
+        <item name="titleTextColor">@color/white</item>
+     </style>
+</resources>
