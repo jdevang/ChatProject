@@ -33,14 +33,7 @@ public class UserListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_list);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        RecyclerView recyclerView = findViewById(R.id.users);
-//        BooksListAdapter adapter = new BooksListAdapter(this);
-//        recyclerView.setAdapter(adapter);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-//        booksViewModel = new ViewModelProvider(this).get(BooksViewModel.class);
-//        booksViewModel.filterBooks();
-//        booksViewModel.getAllBooks().observe(this, adapter::setBooks);
+        RecyclerView recyclerView = findViewById(R.id.users);
 
     }
 }
