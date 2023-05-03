@@ -1,17 +1,16 @@
-package com.psu.dxj5305.chatproject;
+package com.psu.dxj5305.chatproject.activities;
 
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.preference.PreferenceFragmentCompat;
+
+import com.psu.dxj5305.chatproject.utils.CustomSharedPreferences;
+import com.psu.dxj5305.chatproject.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -49,7 +48,6 @@ public class SettingsActivity extends AppCompatActivity {
                     } else {
                         sharedPreferences.setNightModeState(false);
                     }
-                    Toast.makeText(getActivity(),"Theme changed. Please Restart the App",Toast.LENGTH_LONG).show();
                     return true;
                 }
             });

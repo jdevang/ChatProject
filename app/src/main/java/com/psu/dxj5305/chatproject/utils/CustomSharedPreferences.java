@@ -1,4 +1,4 @@
-package com.psu.dxj5305.chatproject;
+package com.psu.dxj5305.chatproject.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

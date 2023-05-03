@@ -24,4 +24,6 @@
     <string name="txtEditImage">Capture Book Image</string>
     <string name="menu_cancel">Cancel</string>
     <string name="menu_add">add</string>
+    <string name="new_message">New</string>
+    <string name="username">username</string>
 </resources>
