@@ -14,13 +14,13 @@
     <color name="darkColorDate">#9e9e9e</color>
     <color name="darkListBackground">#000000</color>
     <color name="darkCardTitle">#ffffff</color>
-    <color name="darkDialogTitle">#ffffff</color>
-    <color name="darkListEmptyTextColor">#ffffff</color>
+    <color name="darkDialogTitle">#FFFFFF</color>
+    <color name="darkListEmptyTextColor">#FFFFFF</color>
 
     <color name="lightColorPrimary">#ff1744</color>
-    <color name="lightColorPrimaryDark">#c4001d</color>
+    <color name="lightColorPrimaryDark">#00C458</color>
     <color name="lightCardBackground">#ff1744</color>
-    <color name="lightListBackground">#ffffff</color>
+    <color name="lightListBackground">#3E1A1A</color>
     <color name="lightCardTitle">#ffffff</color>
     <color name="lightDialogTitle">#000000</color>
     <color name="lightListEmptyTextColor">#000000</color>

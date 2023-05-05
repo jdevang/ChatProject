@@ -4,7 +4,7 @@
         <!-- Dark theme -->
         <item name="colorPrimary">@color/darkColorPrimary</item>
         <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">#131111</item>
         <item name="background">@color/darkCardBackground</item>
         <item name="titleTextColor">@color/white</item>
 
@@ -14,10 +14,10 @@
 
     <!-- Light theme -->
     <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/lightColorPrimary</item>
-        <item name="colorPrimaryDark">@color/lightColorPrimaryDark</item>
+        <item name="colorPrimary">#1C431D</item>
+        <item name="colorPrimaryDark">#00C458</item>
         <item name="colorSecondary">@color/black</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">#00C458</item>
         <item name="background">@color/dialogDateColor</item>
         <item name="titleTextColor">@color/white</item>
     </style>

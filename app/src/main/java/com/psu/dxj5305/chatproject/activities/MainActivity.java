@@ -17,12 +17,15 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.Filter;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.psu.dxj5305.chatproject.db.AppDatabase;
+import com.psu.dxj5305.chatproject.db.Thought;
 import com.psu.dxj5305.chatproject.utils.CustomSharedPreferences;
 import com.psu.dxj5305.chatproject.R;
 import com.psu.dxj5305.chatproject.adapters.UserAdapter;
@@ -38,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     FirebaseUser user;
+    private Boolean snackbarDisplayed;
+    private AppDatabase mDb;
 
     RecyclerView recyclerView;
 
@@ -62,6 +67,32 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         super.onCreate(savedInstanceState);
+
+        if(savedInstanceState != null){
+            snackbarDisplayed = savedInstanceState.getBoolean("snackbarDisplayed");
+        }
+
+        if(snackbarDisplayed == null){
+            snackbarDisplayed = Boolean.FALSE;
+        }
+
+        if(!snackbarDisplayed){
+            new Thread(() -> {
+                mDb = AppDatabase.getDatabase(this);
+                Thought thought = mDb.thoughtDao().getRandomThought();
+                if (thought != null) {
+                    String text = thought.text;
+                    runOnUiThread(() -> {
+                        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_LONG);
+                        snackbar.setDuration(10000);
+                        snackbar.show();
+                    });
+                }
+            }).start();
+            snackbarDisplayed = Boolean.TRUE;
+        }
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -167,5 +198,16 @@ public class MainActivity extends AppCompatActivity {
 
 
                 });
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle b){
+        super.onSaveInstanceState(b);
+        b.putBoolean("snackbarDisplayed", snackbarDisplayed);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle b){
+        super.onRestoreInstanceState(b);
+        snackbarDisplayed = b.getBoolean("snackbarDisplayed");
     }
 }

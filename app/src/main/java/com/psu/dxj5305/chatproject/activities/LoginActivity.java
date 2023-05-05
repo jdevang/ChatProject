@@ -70,31 +70,33 @@ public class LoginActivity extends AppCompatActivity {
                 if(TextUtils.isEmpty(email))
                 {
                     Toast.makeText(LoginActivity.this, "Email can't be empty", Toast.LENGTH_SHORT).show();
-                }
-                if(TextUtils.isEmpty(pass))
+                    progressBar.setVisibility(View.INVISIBLE);
+                } else if(TextUtils.isEmpty(pass))
                 {
                     Toast.makeText(LoginActivity.this, "Password can't be empty", Toast.LENGTH_SHORT).show();
-                }
+                    progressBar.setVisibility(View.INVISIBLE);
+                } else {
 
-                mAuth.signInWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(LoginActivity.this, "Login successful.",
-                                            Toast.LENGTH_SHORT).show();
-                                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                    mAuth.signInWithEmailAndPassword(email, pass)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    progressBar.setVisibility(View.GONE);
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(LoginActivity.this, "Login successful.",
+                                                Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
 
-                                } else {
-                                    Toast.makeText(LoginActivity.this, "Incorrect email or password.",
-                                            Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(LoginActivity.this, "Incorrect email or password.",
+                                                Toast.LENGTH_SHORT).show();
 
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
             }
         });
     }
